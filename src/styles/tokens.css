@@ -1,0 +1,184 @@
+/* ============================================================
+   Finch Design System — Tokens
+   Brand source of truth: Finch logo (#863bff purple, #47bfff blue)
+   ============================================================ */
+
+:root {
+  /* ---- Brand ---- */
+  --brand-purple: #863bff;
+  --brand-purple-bright: #a06bff;
+  --brand-blue: #47bfff;
+  --brand-glow: rgba(134, 59, 255, 0.35);
+
+  /* ---- Neutral ramp (dark default) ---- */
+  --bg: #07070b;
+  --bg-subtle: #0c0c12;
+  --surface: #101019;
+  --surface-2: #161622;
+  --surface-3: #1d1d2b;
+  --elevated: #20202f;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --border-focus: rgba(134, 59, 255, 0.6);
+
+  /* ---- Text ---- */
+  --text: #f4f4f8;
+  --text-h: #ffffff;
+  --text-muted: #9b9bb0;
+  --text-subtle: #6c6c82;
+  --text-on-primary: #ffffff;
+
+  /* ---- Semantic ---- */
+  --primary: #863bff;
+  --primary-hover: #9a52ff;
+  --primary-active: #7a2ef0;
+  --primary-soft: rgba(134, 59, 255, 0.12);
+  --primary-soft-border: rgba(134, 59, 255, 0.28);
+  --secondary: #47bfff;
+  --secondary-soft: rgba(71, 191, 255, 0.12);
+  --success: #3dd68c;
+  --success-soft: rgba(61, 214, 140, 0.12);
+  --warning: #ffb648;
+  --warning-soft: rgba(255, 182, 72, 0.12);
+  --error: #ff5d6c;
+  --error-soft: rgba(255, 93, 108, 0.12);
+  --info: #47bfff;
+  --info-soft: rgba(71, 191, 255, 0.12);
+
+  /* ---- Typography ---- */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+
+  /* Display */
+  --fs-display: clamp(2.75rem, 5.2vw, 4.75rem);
+  --lh-display: 1.04;
+  --ls-display: -0.028em;
+  --fw-display: 600;
+
+  /* H1 */
+  --fs-h1: clamp(2.25rem, 4vw, 3.5rem);
+  --lh-h1: 1.08;
+  --ls-h1: -0.024em;
+  --fw-h1: 600;
+
+  /* H2 */
+  --fs-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --lh-h2: 1.12;
+  --ls-h2: -0.02em;
+  --fw-h2: 600;
+
+  /* H3 */
+  --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --lh-h3: 1.2;
+  --ls-h3: -0.016em;
+  --fw-h3: 600;
+
+  /* Body large */
+  --fs-body-lg: 1.125rem;
+  --lh-body-lg: 1.6;
+
+  /* Body */
+  --fs-body: 1rem;
+  --lh-body: 1.6;
+
+  /* Small */
+  --fs-sm: 0.875rem;
+  --lh-sm: 1.5;
+
+  /* Metadata / caption */
+  --fs-xs: 0.75rem;
+  --lh-xs: 1.4;
+  --ls-xs: 0.02em;
+
+  /* Button */
+  --fs-btn: 0.9375rem;
+  --lh-btn: 1;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --sp-0: 0;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+  --sp-32: 128px;
+  --sp-40: 160px;
+
+  /* ---- Layout ---- */
+  --container: 1200px;
+  --container-wide: 1320px;
+  --container-narrow: 880px;
+  --nav-height: 68px;
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Shadows ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 16px 40px -12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 32px 80px -20px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 0 1px var(--border), 0 24px 60px -20px var(--brand-glow);
+  --ring: 0 0 0 3px rgba(134, 59, 255, 0.35);
+
+  /* ---- Transitions ---- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.16s;
+  --dur: 0.28s;
+  --dur-slow: 0.5s;
+
+  /* ---- Gradients (used sparingly) ---- */
+  --grad-brand: linear-gradient(135deg, #863bff 0%, #6a2ee8 100%);
+  --grad-brand-soft: linear-gradient(135deg, rgba(134, 59, 255, 0.14) 0%, rgba(71, 191, 255, 0.08) 100%);
+  --grad-text: linear-gradient(120deg, #ffffff 0%, #c9b8ff 60%, #863bff 100%);
+  --grad-mesh: radial-gradient(60% 80% at 20% 0%, rgba(134, 59, 255, 0.18) 0%, transparent 60%),
+               radial-gradient(50% 70% at 90% 10%, rgba(71, 191, 255, 0.12) 0%, transparent 55%);
+}
+
+/* ---- Light theme ---- */
+[data-theme="light"] {
+  --bg: #fbfbfd;
+  --bg-subtle: #f5f5f9;
+  --surface: #ffffff;
+  --surface-2: #f7f7fb;
+  --surface-3: #eef0f6;
+  --elevated: #ffffff;
+  --border: rgba(10, 10, 20, 0.08);
+  --border-strong: rgba(10, 10, 20, 0.14);
+  --border-focus: rgba(134, 59, 255, 0.5);
+
+  --text: #1a1a26;
+  --text-h: #0a0a14;
+  --text-muted: #5a5a6e;
+  --text-subtle: #8a8a9c;
+  --text-on-primary: #ffffff;
+
+  --primary-soft: rgba(134, 59, 255, 0.08);
+  --primary-soft-border: rgba(134, 59, 255, 0.22);
+  --secondary-soft: rgba(71, 191, 255, 0.1);
+  --success-soft: rgba(61, 214, 140, 0.1);
+  --warning-soft: rgba(255, 182, 72, 0.1);
+  --error-soft: rgba(255, 93, 108, 0.1);
+  --info-soft: rgba(71, 191, 255, 0.1);
+
+  --shadow-sm: 0 1px 2px rgba(10, 10, 30, 0.06);
+  --shadow: 0 8px 24px -10px rgba(10, 10, 30, 0.12);
+  --shadow-md: 0 16px 40px -14px rgba(10, 10, 30, 0.16);
+  --shadow-lg: 0 32px 80px -24px rgba(10, 10, 30, 0.2);
+  --shadow-glow: 0 0 0 1px var(--border), 0 24px 60px -28px rgba(134, 59, 255, 0.25);
+
+  --grad-mesh: radial-gradient(60% 80% at 20% 0%, rgba(134, 59, 255, 0.1) 0%, transparent 60%),
+               radial-gradient(50% 70% at 90% 10%, rgba(71, 191, 255, 0.08) 0%, transparent 55%);
+  --grad-text: linear-gradient(120deg, #0a0a14 0%, #5a1ec0 70%, #863bff 100%);
+}

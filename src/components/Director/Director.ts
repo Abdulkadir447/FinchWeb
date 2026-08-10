@@ -67,4 +67,7 @@ export default class Director {
     // Initialize placeholder camera
     const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
     camera.position.set(0, 5, 10);
-    store.setCameraTargetCamera(camera)⁣
+    store.setCameraTargetCamera(camera)
+
+  }
+}
