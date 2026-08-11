@@ -4,10 +4,10 @@ import { LinkButton } from '../ui/Button'
 import { ThemeToggle } from '../ui/ThemeToggle'
 
 const links = [
-  { label: 'Product', href: '#product' },
-  { label: 'Solutions', href: '#operations' },
-  { label: 'Resources', href: '#analysis' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Product', href: '#what-is-finch' },
+  { label: 'Features', href: '#features' },
+  { label: 'Finch AI', href: '#ai' },
+  { label: 'Download', href: '#download' },
 ]
 
 export function Navbar() {
@@ -15,10 +15,10 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 12)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const closeMenu = () => setMenuOpen(false)
+  const close = () => setMenuOpen(false)
 
   return (
     <>
@@ -35,28 +35,30 @@ export function Navbar() {
           <a href="#top" aria-label="Finch home"><Logo /></a>
           <nav aria-label="Main navigation">
             <ul className="nav-links">
-              {links.map((link) => <li key={link.label}><a className="nav-link" href={link.href}>{link.label}</a></li>)}
+              {links.map((link) => (
+                <li key={link.label}><a className="nav-link" href={link.href}>{link.label}</a></li>
+              ))}
             </ul>
           </nav>
           <div className="nav-actions">
             <ThemeToggle />
-            <a className="btn btn-ghost" href="#footer">Sign in</a>
-            <LinkButton href="#pricing" size="sm">Get started</LinkButton>
-            <button className="nav-toggle" onClick={() => setMenuOpen(true)} aria-label="Open navigation menu" aria-expanded={menuOpen}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            <a className="btn btn-ghost sign-in-link" href="#whitelist">Sign in</a>
+            <LinkButton href="#whitelist" size="sm">Join whitelist</LinkButton>
+            <button className="nav-toggle" onClick={() => setMenuOpen(true)} aria-label="Open navigation menu">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
             </button>
           </div>
         </div>
       </header>
-      <div className={`drawer-backdrop ${menuOpen ? 'open' : ''}`} onClick={closeMenu} aria-hidden="true" />
-      <aside className={`drawer ${menuOpen ? 'open' : ''}`} aria-label="Mobile navigation" aria-hidden={!menuOpen}>
-        <button className="drawer-close" onClick={closeMenu} aria-label="Close navigation menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
-        </button>
-        {links.map((link) => <a key={link.label} className="drawer-link" href={link.href} onClick={closeMenu}>{link.label}</a>)}
+      <div className={`drawer-backdrop ${menuOpen ? 'open' : ''}`} onClick={close} aria-hidden="true" />
+      <aside className={`drawer ${menuOpen ? 'open' : ''}`} aria-label="Mobile navigation">
+        <button className="drawer-close" onClick={close} aria-label="Close navigation menu">×</button>
+        {links.map((link) => (
+          <a key={link.label} className="drawer-link" href={link.href} onClick={close}>{link.label}</a>
+        ))}
         <div className="drawer-actions">
-          <a className="btn btn-secondary" href="#footer" onClick={closeMenu}>Sign in</a>
-          <LinkButton href="#pricing" size="lg" className="drawer-cta">Get started</LinkButton>
+          <a className="btn btn-secondary" href="#whitelist" onClick={close}>Sign in</a>
+          <LinkButton href="#whitelist" size="lg" className="drawer-cta">Join whitelist</LinkButton>
         </div>
       </aside>
     </>
