@@ -1,24 +1,8 @@
-import { SectionHeader } from '../ui/SectionHeader'
-import { useReveal } from '../../hooks/useReveal'
+import { ArrowRight, Layers3, LockKeyhole, WandSparkles } from 'lucide-react'
+import { Container } from '../ui/Container'
 
-const systems = [
-  { label: 'Orders', detail: 'Every order, in one place', tone: 'purple' },
-  { label: 'Products', detail: 'Your catalog, always current', tone: 'blue' },
-  { label: 'Inventory', detail: 'Know what is available', tone: 'green' },
-  { label: 'Sales', detail: 'See what is moving', tone: 'orange' },
-  { label: 'Payments', detail: 'Track every transaction', tone: 'pink' },
-  { label: 'Customers', detail: 'Understand who comes back', tone: 'teal' },
-]
+const items = [{ icon: Layers3, title: 'Everything in sync', text: 'A shared source of truth for every moving part.' }, { icon: WandSparkles, title: 'Less busywork', text: 'Automations that give your team time back.' }, { icon: LockKeyhole, title: 'Your data, protected', text: 'Built with privacy and control from day one.' }]
 
 export function OperationsSection() {
-  const ref = useReveal<HTMLDivElement>()
-  return (
-    <section className="section operations-section" id="operations">
-      <div className="container">
-        <SectionHeader eyebrow="One connected system" title="Less switching. More understanding." description="Finch connects the parts of your business that already depend on each other, so you can work from one shared picture." />
-        <div className="operations-flow reveal" ref={ref}>{systems.map((system, index) => <div className="operation-item" key={system.label}><div className={`operation-icon ${system.tone}`} aria-hidden="true">{['↗', '◇', '▦', '⌁', '$', '◉'][index]}</div><div><strong>{system.label}</strong><span>{system.detail}</span></div>{index < systems.length - 1 && <span className="operation-arrow" aria-hidden="true">→</span>}</div>)}</div>
-        <div className="operations-callout"><span className="callout-rule" /><p>When the pieces connect, the questions get simpler.</p></div>
-      </div>
-    </section>
-  )
+  return <section className="border-b border-ink-200 py-24"><Container><div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><div className="eyebrow">Designed to move</div><h2 className="mt-5 max-w-xl text-4xl font-semibold leading-tight tracking-[-.04em] md:text-5xl">Operations that feel <span className="text-brand-600">effortless.</span></h2></div><p className="max-w-sm leading-7 text-ink-600">The right tools should disappear into the way your team already works.</p></div><div className="grid divide-y divide-ink-200 border-y border-ink-200 md:grid-cols-3 md:divide-x md:divide-y-0">{items.map(({ icon: Icon, title, text }, index) => <div key={title} className="group px-1 py-7 md:px-7 md:first:pl-0"><div className="flex items-center justify-between"><div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-50 text-brand-700"><Icon size={19} /></div><span className="font-mono text-xs text-ink-300">0{index + 1}</span></div><h3 className="mt-6 text-lg font-semibold">{title}</h3><p className="mt-2 max-w-xs text-sm leading-6 text-ink-600">{text}</p><ArrowRight size={16} className="mt-6 text-ink-300 transition-all group-hover:translate-x-1 group-hover:text-brand-600" /></div>)}</div></Container></section>
 }

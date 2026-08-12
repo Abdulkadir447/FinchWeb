@@ -1,6 +1,12 @@
-import React from 'react';
-import FinchCanvas from '../components/Canvas/FinchCanvas';
+import { ArrowUpRight, Download } from 'lucide-react'
+import { Navbar } from '../components/layout/Navbar'
+import { Hero } from '../components/sections/Hero'
+import { DashboardSection } from '../components/sections/DashboardSection'
+import { AnalysisSection } from '../components/sections/AnalysisSection'
+import { OperationsSection } from '../components/sections/OperationsSection'
+import { Button } from '../components/ui/Button'
+import { Container } from '../components/ui/Container'
 
 export default function App() {
-  return <FinchCanvas />;
+  return <div id="top"><Navbar /><main><Hero /><DashboardSection /><AnalysisSection /><OperationsSection /><section id="access" className="relative overflow-hidden bg-brand-600 py-24 text-white"><div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full border border-white/20" /><div className="pointer-events-none absolute -bottom-32 -left-20 h-96 w-96 rounded-full border border-white/10" /><Container className="relative text-center"><div className="eyebrow text-brand-100">Your next chapter starts here</div><h2 className="mx-auto mt-5 max-w-2xl text-4xl font-semibold leading-tight tracking-[-.04em] md:text-6xl">Ready to make room for what’s next?</h2><p className="mx-auto mt-5 max-w-lg leading-7 text-brand-100">Finch is currently available to a growing group of modern teams. Request access or download the desktop app to get started.</p><div className="mt-9 flex flex-wrap justify-center gap-3"><Button className="bg-white text-brand-700 hover:bg-brand-50" onClick={() => alert('Thanks for your interest. We will be in touch soon.')}>Request access <ArrowUpRight size={16} /></Button><Button variant="secondary" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white" onClick={() => alert('Download links will be available soon.')}>Download Finch <Download size={16} /></Button></div></Container></section></main><footer className="bg-ink-950 py-8 text-ink-400"><Container className="flex flex-col justify-between gap-4 text-xs md:flex-row md:items-center"><div className="flex items-center gap-2"><span className="grid h-6 w-6 place-items-center rounded-md bg-brand-600 text-[10px] font-bold text-white">F</span><span>Finch © 2024</span></div><div className="flex gap-5"><a href="#top" className="hover:text-white">Privacy</a><a href="#top" className="hover:text-white">Terms</a><a href="#top" className="hover:text-white">Contact</a></div></Container></footer></div>
 }

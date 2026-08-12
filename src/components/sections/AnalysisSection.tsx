@@ -1,24 +1,6 @@
-import { SectionHeader } from '../ui/SectionHeader'
-import { Badge } from '../ui/Badge'
-import { useReveal } from '../../hooks/useReveal'
-
-const comparisonBars = [{ label: 'Revenue', current: 82, previous: 65 }, { label: 'Orders', current: 68, previous: 74 }, { label: 'New customers', current: 56, previous: 42 }, { label: 'Returning', current: 76, previous: 61 }]
+import { ArrowUpRight, TrendingUp } from 'lucide-react'
+import { Container } from '../ui/Container'
 
 export function AnalysisSection() {
-  const visualRef = useReveal<HTMLDivElement>()
-  return (
-    <section className="section analysis-section" id="analysis">
-      <div className="container">
-        <div className="split-heading"><SectionHeader eyebrow="Analysis" title="Understand what is actually happening." description="Go beyond the numbers. Finch makes patterns visible, so you can make the next decision with context." /><Badge neutral>Built for the questions behind the numbers</Badge></div>
-        <div className="analysis-layout reveal" ref={visualRef}>
-          <div className="analysis-main card">
-            <div className="analysis-header"><div><span className="kpi-label">Business performance</span><h3>How things are moving</h3></div><div className="analysis-controls"><span className="analysis-control active">30 days</span><span className="analysis-control">90 days</span></div></div>
-            <div className="big-chart"><div className="big-chart-y"><span>50k</span><span>40k</span><span>30k</span><span>20k</span><span>10k</span><span>0</span></div><div className="big-chart-body"><div className="grid-lines"><i /><i /><i /><i /><i /><i /></div><svg viewBox="0 0 700 250" preserveAspectRatio="none" aria-label="Illustrative revenue trend line chart"><path d="M0 210 C30 202 55 188 82 194 S130 166 160 175 S210 155 238 164 S280 110 320 128 S360 143 390 105 S438 118 466 88 S520 102 548 70 S610 82 640 48 S680 45 700 30" fill="none" stroke="#863bff" strokeWidth="3" vectorEffect="non-scaling-stroke"/><path d="M0 210 C30 202 55 188 82 194 S130 166 160 175 S210 155 238 164 S280 110 320 128 S360 143 390 105 S438 118 466 88 S520 102 548 70 S610 82 640 48 S680 45 700 30 V250 H0Z" fill="url(#analysisFill)" opacity=".7"/><defs><linearGradient id="analysisFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#863bff" stopOpacity=".18"/><stop offset="1" stopColor="#863bff" stopOpacity="0"/></linearGradient></defs></svg><div className="big-chart-x"><span>Sep 15</span><span>Sep 22</span><span>Sep 29</span><span>Oct 6</span><span>Oct 14</span></div></div></div>
-            <div className="chart-callout"><span className="callout-dot" />Revenue is trending up, with the strongest movement in returning customers.</div>
-          </div>
-          <div className="comparison-card card"><div className="analysis-header"><div><span className="kpi-label">Comparison</span><h3>This month vs. last</h3></div><span className="comparison-period">Oct 2024</span></div><div className="comparison-list">{comparisonBars.map((item) => <div className="comparison-row" key={item.label}><div className="comparison-label"><span>{item.label}</span><strong>{item.current > item.previous ? '+' : ''}{item.current - item.previous}%</strong></div><div className="comparison-track"><i style={{ width: `${item.previous}%` }} /><b style={{ width: `${item.current}%` }} /></div></div>)}</div><div className="comparison-legend"><span><i className="legend-prev" />Last month</span><span><i className="legend-current" />This month</span></div></div>
-        </div>
-      </div>
-    </section>
-  )
+  return <section className="border-b border-ink-200 bg-ink-950 py-24 text-white"><Container><div className="grid gap-14 lg:grid-cols-2 lg:items-end"><div><div className="eyebrow text-brand-300">Signal over noise</div><h2 className="mt-5 text-4xl font-semibold leading-tight tracking-[-.04em] md:text-5xl">Make decisions with <span className="text-brand-300">momentum.</span></h2><p className="mt-5 max-w-md leading-7 text-ink-300">Surface the patterns behind your work and turn them into your next best move.</p></div><div className="rounded-2xl border border-white/10 bg-white/[.06] p-5"><div className="flex items-center justify-between"><span className="flex items-center gap-2 text-sm font-medium"><TrendingUp size={16} className="text-brand-300" /> Weekly growth</span><span className="font-mono text-xs text-brand-300">+18.4%</span></div><div className="mt-8 flex h-36 items-end gap-2">{[31,38,35,48,43,61,56,68,64,77,74,92].map((height, i) => <div key={i} className="flex-1 rounded-t bg-brand-400/80" style={{ height: `${height}%` }} />)}</div><div className="mt-4 flex justify-between border-t border-white/10 pt-3 text-[10px] text-ink-400"><span>12 weeks ago</span><span>Today</span></div></div></div><div className="mt-16 flex flex-wrap gap-10 border-t border-white/10 pt-7 text-sm text-ink-300"><span><strong className="text-white">24/7</strong> visibility</span><span><strong className="text-white">3.2x</strong> faster insights</span><span><strong className="text-white">100%</strong> yours</span><a href="#access" className="ml-auto inline-flex items-center gap-2 font-medium text-brand-300 hover:text-brand-200">See how it works <ArrowUpRight size={15} /></a></div></Container></section>
 }
