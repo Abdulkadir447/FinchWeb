@@ -13,9 +13,9 @@ const systems = [
 export function OperationsSection() {
   const ref = useReveal<HTMLDivElement>()
   return (
-    <section className="section operations-section" id="features">
+    <section className="section operations-section" id="operations">
       <div className="container">
-        <SectionHeader eyebrow="Inside Finch" title="Less switching. More understanding." description="These are features of the Finch desktop application, connected so you can work from one shared picture." />
+        <SectionHeader eyebrow="One connected system" title="Less switching. More understanding." description="Finch connects the parts of your business that already depend on each other, so you can work from one shared picture." />
         <div className="operations-flow reveal" ref={ref}>{systems.map((system, index) => <div className="operation-item" key={system.label}><div className={`operation-icon ${system.tone}`} aria-hidden="true">{['↗', '◇', '▦', '⌁', '$', '◉'][index]}</div><div><strong>{system.label}</strong><span>{system.detail}</span></div>{index < systems.length - 1 && <span className="operation-arrow" aria-hidden="true">→</span>}</div>)}</div>
         <div className="operations-callout"><span className="callout-rule" /><p>When the pieces connect, the questions get simpler.</p></div>
       </div>

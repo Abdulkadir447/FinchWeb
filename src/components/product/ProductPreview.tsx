@@ -1,13 +1,15 @@
+const bars = [42, 58, 48, 72, 63, 82, 76, 94, 70, 88, 78, 100]
+
 function StatusDot({ color = 'success' }: { color?: 'success' | 'warning' | 'error' }) {
   return <span className={`status-dot ${color}`} aria-hidden="true" />
 }
 
 export function ProductPreview() {
   return (
-    <div className="product-frame dashboard-preview" aria-label="Preview of the Finch desktop application">
+    <div className="product-frame dashboard-preview" aria-label="Finch dashboard product preview">
       <div className="product-bar">
         <div className="product-dots" aria-hidden="true"><span /><span /><span /></div>
-        <span className="product-url">Finch desktop application · overview</span>
+        <span className="product-url">app.finch.business / dashboard</span>
         <span className="preview-avatar">JD</span>
       </div>
       <div className="app-layout">
