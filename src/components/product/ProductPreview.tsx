@@ -1,4 +1,4 @@
-import { BarChart3, Box, ChevronDown, Package, Search, ShoppingCart } from 'lucide-react'
+import { ChartBar as BarChart3, Box, ChevronDown, Package, Search, ShoppingCart } from 'lucide-react'
 
 const navItems = [{ icon: BarChart3, label: 'Overview' }, { icon: ShoppingCart, label: 'Orders' }, { icon: Package, label: 'Products' }, { icon: Box, label: 'Inventory' }]
 
