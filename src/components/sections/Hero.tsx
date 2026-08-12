@@ -1,25 +1,8 @@
-import { LinkButton } from '../ui/Button'
-import { Badge } from '../ui/Badge'
+import { ArrowDown, ArrowUpRight, Check } from 'lucide-react'
+import { Button } from '../ui/Button'
+import { Container } from '../ui/Container'
 import { ProductPreview } from '../product/ProductPreview'
-import { useReveal } from '../../hooks/useReveal'
 
 export function Hero() {
-  const copyRef = useReveal<HTMLDivElement>()
-  const previewRef = useReveal<HTMLDivElement>()
-
-  return (
-    <section className="hero section" id="top">
-      <div className="hero-mesh" aria-hidden="true" />
-      <div className="container">
-        <div className="hero-copy reveal" ref={copyRef}>
-          <Badge dot>Business, with clarity</Badge>
-          <h1>Run your business<br /><span className="text-gradient">with clarity.</span></h1>
-          <p>Finch brings your operations, data, and decisions together in one calm, intelligent workspace.</p>
-          <div className="hero-actions"><LinkButton href="#pricing" size="lg" arrow>Get started</LinkButton><LinkButton href="#product" variant="secondary" size="lg">Explore Finch</LinkButton></div>
-          <span className="hero-note">A better way to see what is happening in your business.</span>
-        </div>
-        <div className="hero-preview reveal" ref={previewRef}><ProductPreview /></div>
-      </div>
-    </section>
-  )
+  return <section id="top" className="relative overflow-hidden border-b border-ink-200 bg-[#f7f8f6] pt-20 md:pt-28"><div className="pointer-events-none absolute inset-0 grid-lines opacity-40 [mask-image:linear-gradient(to_bottom,black,transparent_80%)]" /><Container className="relative"><div className="max-w-3xl reveal"><div className="eyebrow">A better way to operate</div><h1 className="mt-6 max-w-3xl text-5xl font-semibold leading-[1.06] tracking-[-.055em] text-ink-950 md:text-7xl">The command center for your <span className="text-brand-600">next chapter.</span></h1><p className="mt-7 max-w-xl text-lg leading-8 text-ink-600">Finch brings your operations into focus — so your team can move with confidence, make better decisions, and grow without the guesswork.</p><div className="mt-9 flex flex-wrap items-center gap-3"><Button onClick={() => document.querySelector('#access')?.scrollIntoView({ behavior: 'smooth' })}>Request access <ArrowUpRight size={16} /></Button><Button variant="secondary" onClick={() => document.querySelector('#product')?.scrollIntoView({ behavior: 'smooth' })}>See Finch in action <ArrowDown size={15} /></Button></div><div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-xs text-ink-500"><span className="flex items-center gap-1.5"><Check size={13} className="text-brand-600" /> Built for modern teams</span><span className="flex items-center gap-1.5"><Check size={13} className="text-brand-600" /> Private by default</span></div></div><div id="product" className="relative mt-20 pb-20 md:mt-28"><div className="absolute -inset-8 rounded-[32px] bg-brand-100/40 blur-3xl" /><div className="relative"><div className="mb-4 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-ink-400"><span>Inside Finch</span><span>Product preview</span></div><div className="h-1 w-full bg-brand-500" /><div className="mt-0"><ProductPreview /></div></div></div></Container></section>
 }
