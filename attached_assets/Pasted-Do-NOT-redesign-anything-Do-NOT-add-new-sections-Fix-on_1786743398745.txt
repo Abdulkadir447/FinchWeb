@@ -1,0 +1,178 @@
+Do NOT redesign anything. Do NOT add new sections. Fix only the design-system implementation.
+
+The previous design-system synchronization was incomplete.
+
+Files to edit
+
+Only modify these files:
+
+src/styles/tokens.css
+src/index.css
+src/app/index.css
+src/App.css
+1. src/styles/tokens.css
+
+Make this the ONLY source of Finch design tokens.
+
+Replace the current brand system:
+
+#863BFF
+#A06BFF
+#47BFFF
+
+with:
+
+Primary:        #5B5BD6
+Primary Hover:  #6E6EE0
+Primary Active: #4A4AC4
+Primary Surface:#EEEEFB
+
+Replace semantic colors with:
+
+Success: #2E9E5B
+Warning: #E0A106
+Error:   #D64545
+Info:    #2D8FD5
+
+Use the canonical neutral scale:
+
+#FFFFFF
+#F7F8FA
+#EEF0F4
+#E2E5EB
+#CAD0DA
+#9AA3B2
+#6B7484
+#4B5260
+#353B47
+#23272F
+#15181D
+#0C0E12
+
+Typography:
+
+Inter,
+Segoe UI,
+-apple-system,
+BlinkMacSystemFont,
+Helvetica Neue,
+Arial,
+sans-serif
+
+Keep the existing Finch spacing scale where it is compatible with the canonical 4px base.
+
+Keep the existing website-specific display sizing if necessary; this is a marketing website, so don't flatten all responsive typography into the desktop app's exact sizes.
+
+2. src/index.css
+
+Remove all hardcoded design-system values such as:
+
+#171a1f
+#f7f8f6
+#abe0c9
+#0d3d30
+#147558
+
+Replace them with references to tokens.css.
+
+For example:
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+The .eyebrow component must use Finch's tokenized text/accent system rather than the old green #147558.
+
+3. src/app/index.css
+
+This file still contains the old Vite starter theme.
+
+Remove the duplicate definitions of:
+
+--text
+--text-h
+--bg
+--border
+--accent
+--accent-bg
+--accent-border
+--social-bg
+--sans
+--heading
+--mono
+
+Do not maintain a second theme here.
+
+Preserve only genuinely app-specific layout rules if they are still used.
+
+If a rule belongs in the global token system, move/reference the token instead.
+
+4. src/App.css
+
+This is still containing old Vite starter styles such as:
+
+.counter
+.hero .base
+.hero .framework
+.hero .vite
+#center
+#next-steps
+#docs
+#spacer
+.ticks
+
+Determine whether these selectors are actually used by the current Finch website.
+
+If unused, DELETE them.
+
+Do not replace them with another design system.
+
+5. Important
+
+Do not modify:
+
+src/app/App.tsx
+src/components/
+
+unless a component contains a hardcoded color that directly prevents it from consuming the new tokens.
+
+Do not change layout, copy, animations, sections, or functionality.
+
+6. Verification
+
+After the changes:
+
+Search the entire src/ directory for:
+
+#863BFF
+#863bff
+#47BFFF
+#47bfff
+#AA3BFF
+#aa3bff
+#C084FC
+#c084fc
+#147558
+#ABE0C9
+#f7f8f6
+#171a1f
+
+Any remaining occurrence must be explicitly justified.
+
+Also search for duplicate definitions of:
+
+--accent
+--primary
+--text
+--bg
+--border
+
+There should be one canonical token system.
+
+Finally run:
+
+npm run build
+npm run lint
+
+Do not redesign anything during this task.
