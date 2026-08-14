@@ -1,53 +1,70 @@
 /* ============================================================
    Finch Design System — Tokens
-   Brand source of truth: Finch logo (#863bff purple, #47bfff blue)
+   Single source of truth for Finch color, type, spacing, and UI tokens.
    ============================================================ */
 
 :root {
-  /* ---- Brand ---- */
-  --brand-purple: #863bff;
-  --brand-purple-bright: #a06bff;
-  --brand-blue: #47bfff;
-  --brand-glow: rgba(134, 59, 255, 0.35);
+  /* ---- Canonical neutral scale ---- */
+  --neutral-0: #FFFFFF;
+  --neutral-50: #F7F8FA;
+  --neutral-100: #EEF0F4;
+  --neutral-200: #E2E5EB;
+  --neutral-300: #CAD0DA;
+  --neutral-400: #9AA3B2;
+  --neutral-500: #6B7484;
+  --neutral-600: #4B5260;
+  --neutral-700: #353B47;
+  --neutral-800: #23272F;
+  --neutral-900: #15181D;
+  --neutral-950: #0C0E12;
 
-  /* ---- Neutral ramp (dark default) ---- */
-  --bg: #07070b;
-  --bg-subtle: #0c0c12;
-  --surface: #101019;
-  --surface-2: #161622;
-  --surface-3: #1d1d2b;
-  --elevated: #20202f;
-  --border: rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(255, 255, 255, 0.12);
-  --border-focus: rgba(134, 59, 255, 0.6);
+  /* ---- Brand ---- */
+  --primary: #5B5BD6;
+  --primary-hover: #6E6EE0;
+  --primary-active: #4A4AC4;
+  --primary-surface: #EEEEFB;
+
+  /* Compatibility aliases for existing Finch components */
+  --brand-purple: var(--primary);
+  --brand-purple-bright: var(--primary-hover);
+  --brand-blue: var(--info);
+  --brand-glow: color-mix(in srgb, var(--primary) 35%, transparent);
+
+  /* ---- Surfaces and borders ---- */
+  --bg: var(--neutral-50);
+  --bg-subtle: var(--neutral-100);
+  --surface: var(--neutral-0);
+  --surface-2: var(--neutral-50);
+  --surface-3: var(--neutral-100);
+  --elevated: var(--neutral-0);
+  --border: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+  --border-focus: color-mix(in srgb, var(--primary) 60%, transparent);
 
   /* ---- Text ---- */
-  --text: #f4f4f8;
-  --text-h: #ffffff;
-  --text-muted: #9b9bb0;
-  --text-subtle: #6c6c82;
-  --text-on-primary: #ffffff;
+  --text: var(--neutral-800);
+  --text-h: var(--neutral-900);
+  --text-muted: var(--neutral-500);
+  --text-subtle: var(--neutral-400);
+  --text-on-primary: var(--neutral-0);
 
   /* ---- Semantic ---- */
-  --primary: #863bff;
-  --primary-hover: #9a52ff;
-  --primary-active: #7a2ef0;
-  --primary-soft: rgba(134, 59, 255, 0.12);
-  --primary-soft-border: rgba(134, 59, 255, 0.28);
-  --secondary: #47bfff;
-  --secondary-soft: rgba(71, 191, 255, 0.12);
-  --success: #3dd68c;
-  --success-soft: rgba(61, 214, 140, 0.12);
-  --warning: #ffb648;
-  --warning-soft: rgba(255, 182, 72, 0.12);
-  --error: #ff5d6c;
-  --error-soft: rgba(255, 93, 108, 0.12);
-  --info: #47bfff;
-  --info-soft: rgba(71, 191, 255, 0.12);
+  --success: #2E9E5B;
+  --warning: #E0A106;
+  --error: #D64545;
+  --info: #2D8FD5;
+  --primary-soft: var(--primary-surface);
+  --primary-soft-border: color-mix(in srgb, var(--primary) 28%, transparent);
+  --secondary: var(--info);
+  --secondary-soft: color-mix(in srgb, var(--info) 12%, transparent);
+  --success-soft: color-mix(in srgb, var(--success) 12%, transparent);
+  --warning-soft: color-mix(in srgb, var(--warning) 12%, transparent);
+  --error-soft: color-mix(in srgb, var(--error) 12%, transparent);
+  --info-soft: color-mix(in srgb, var(--info) 12%, transparent);
 
   /* ---- Typography ---- */
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+  --font-sans: Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
 
   /* Display */
   --fs-display: clamp(2.75rem, 5.2vw, 4.75rem);
@@ -124,12 +141,12 @@
   --radius-pill: 999px;
 
   /* ---- Shadows ---- */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 16px 40px -12px rgba(0, 0, 0, 0.55);
-  --shadow-lg: 0 32px 80px -20px rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 1px 2px rgba(12, 14, 18, 0.12);
+  --shadow: 0 8px 24px -8px rgba(12, 14, 18, 0.18);
+  --shadow-md: 0 16px 40px -12px rgba(12, 14, 18, 0.22);
+  --shadow-lg: 0 32px 80px -20px rgba(12, 14, 18, 0.28);
   --shadow-glow: 0 0 0 1px var(--border), 0 24px 60px -20px var(--brand-glow);
-  --ring: 0 0 0 3px rgba(134, 59, 255, 0.35);
+  --ring: 0 0 0 3px color-mix(in srgb, var(--primary) 35%, transparent);
 
   /* ---- Transitions ---- */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -139,46 +156,9 @@
   --dur-slow: 0.5s;
 
   /* ---- Gradients (used sparingly) ---- */
-  --grad-brand: linear-gradient(135deg, #863bff 0%, #6a2ee8 100%);
-  --grad-brand-soft: linear-gradient(135deg, rgba(134, 59, 255, 0.14) 0%, rgba(71, 191, 255, 0.08) 100%);
-  --grad-text: linear-gradient(120deg, #ffffff 0%, #c9b8ff 60%, #863bff 100%);
-  --grad-mesh: radial-gradient(60% 80% at 20% 0%, rgba(134, 59, 255, 0.18) 0%, transparent 60%),
-               radial-gradient(50% 70% at 90% 10%, rgba(71, 191, 255, 0.12) 0%, transparent 55%);
-}
-
-/* ---- Light theme ---- */
-[data-theme="light"] {
-  --bg: #fbfbfd;
-  --bg-subtle: #f5f5f9;
-  --surface: #ffffff;
-  --surface-2: #f7f7fb;
-  --surface-3: #eef0f6;
-  --elevated: #ffffff;
-  --border: rgba(10, 10, 20, 0.08);
-  --border-strong: rgba(10, 10, 20, 0.14);
-  --border-focus: rgba(134, 59, 255, 0.5);
-
-  --text: #1a1a26;
-  --text-h: #0a0a14;
-  --text-muted: #5a5a6e;
-  --text-subtle: #8a8a9c;
-  --text-on-primary: #ffffff;
-
-  --primary-soft: rgba(134, 59, 255, 0.08);
-  --primary-soft-border: rgba(134, 59, 255, 0.22);
-  --secondary-soft: rgba(71, 191, 255, 0.1);
-  --success-soft: rgba(61, 214, 140, 0.1);
-  --warning-soft: rgba(255, 182, 72, 0.1);
-  --error-soft: rgba(255, 93, 108, 0.1);
-  --info-soft: rgba(71, 191, 255, 0.1);
-
-  --shadow-sm: 0 1px 2px rgba(10, 10, 30, 0.06);
-  --shadow: 0 8px 24px -10px rgba(10, 10, 30, 0.12);
-  --shadow-md: 0 16px 40px -14px rgba(10, 10, 30, 0.16);
-  --shadow-lg: 0 32px 80px -24px rgba(10, 10, 30, 0.2);
-  --shadow-glow: 0 0 0 1px var(--border), 0 24px 60px -28px rgba(134, 59, 255, 0.25);
-
-  --grad-mesh: radial-gradient(60% 80% at 20% 0%, rgba(134, 59, 255, 0.1) 0%, transparent 60%),
-               radial-gradient(50% 70% at 90% 10%, rgba(71, 191, 255, 0.08) 0%, transparent 55%);
-  --grad-text: linear-gradient(120deg, #0a0a14 0%, #5a1ec0 70%, #863bff 100%);
+  --grad-brand: linear-gradient(135deg, var(--primary) 0%, var(--primary-active) 100%);
+  --grad-brand-soft: linear-gradient(135deg, color-mix(in srgb, var(--primary) 14%, transparent) 0%, color-mix(in srgb, var(--info) 8%, transparent) 100%);
+  --grad-text: linear-gradient(120deg, var(--neutral-900) 0%, var(--primary) 70%, var(--primary-hover) 100%);
+  --grad-mesh: radial-gradient(60% 80% at 20% 0%, color-mix(in srgb, var(--primary) 18%, transparent) 0%, transparent 60%),
+               radial-gradient(50% 70% at 90% 10%, color-mix(in srgb, var(--info) 12%, transparent) 0%, transparent 55%);
 }
